@@ -12,5 +12,25 @@
 
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body></body>
+
+  <body>
+    <header class="header-bg">
+      <!-- A tag <header >marca o cabeçalho do site (banner), onde geralmente estão presentes a marca, navegação do site e as vezes uma informação introdutória. Sempre que tiver a class="header-bg" ja sabemos que tem um background que se expande de ponta a ponta do site -->
+      <div class="header">
+        <!-- estrutura: tag fora com o background (<header>), tag dentro com o container do site (<div>) -->
+        <a href="./">
+          <img src="./img/bikcraft.svg" alt="Bikcraft" />
+        </a>
+        <!-- sempre que o caminho tiver "./" ele ja vai pra home do site, ou seja, pro index.html -->
+
+        <nav aria-label="primaria">
+          <ul class="header-menu">
+            <li><a href="./bicicletas.html">Bicicletas</a></li>
+            <li><a href="./seguros.html">Seguros</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </body>
 </html>

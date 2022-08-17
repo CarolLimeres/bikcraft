@@ -1,1 +1,89 @@
+body {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Sempre dar esse reset nos estilos iniciais de cada coisa (acima) */
+
+.header-bg {
+  background-color: #000;
+}
+
+.header {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* p quebrar p baixo */
+  justify-content: space-between; /* pra colocar o logo de um lado e os itens da navegação do outro, espaçamento entre os itens */
+  align-items: center; /* pro logo ficar sempre alinhado ao centro com os itens da navegação */
+  box-sizing: border-box; /* p nao precisar escrever um valor quebrado pro max-width, com isso ele ja conta os valores de padding (20px pra cima e p baixo e de um lado p outro)*/
+  padding: 20px; /* p desgrudar os itens dos cantos */
+  max-width: 1200px; /* container p segurar os itens, p nao crescer infinitamente, p deixar responsivo */
+  margin-left: auto;
+  margin-right: auto; /* margin left e right de auto pra alinhar ao centro dps que foi definido o max-width de 1200px senao ia sempre ficar alinhado no msm canto */
+}
+
+.header-menu {
+  display: flex; /* p colocar cada li uma do lado da outra */
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.header-menu a {
+  color: #ffffff;
+  display: inline-block; /* pro padding pegar direito */
+  padding: 16px 0px; /* p aumentar a area de contato do botao, qnd clicar com o dedo vai ser melhor, coloco so pra cima e pra baixo senao os itens iam ficar mt espaçados */
+  font-size: 18px;
+  position: relative; /* sem isso o elemento absolute fica em relaçao ao body, o width ficar crescendo de acordo com o body. Com isso nao ocupa mais nenhum espaço q aumente esses itens */
+}
+
+.header-menu a:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0px; /* aqui a largura fica como 0 pq eu só quero que o sublinhado apareça quando eu passar o mouse em cima */
+  background: #ffffff;
+  margin-top: 4px;
+  transition: 0.3s; /* geralmente esse é o valor ideal */
+  position: absolute; /* p tirar o elemento do fluxo e voltar a ficar centralizado com o logo, ate diminuiu a altura do header, passa a ficar relacionado ao elemento pai que tiver com o position relative */
+}
+
+.header-menu a:hover:after {
+  width: 100%; /* p pegar exatamente a largura do elmento pai, ou seja, o tamanho do conteudo certinho, entao ja fica como se fosse um sublinhado que a gente definiu */
+}
+
+@media (max-width: 800px) /* abaixo de 800px */ {
+  .header-menu {
+    gap: 20px;
+  }
+  .header-menu a {
+    background: #111111;
+    padding: 12px 16px;
+    border-radius: 4px;
+  }
+  .header-menu a:hover {
+    background-color: #2e2e2e;
+  }
+  .header a:after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-menu {
+    gap: 12px;
+  }
+  .header-menu a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
