@@ -3,14 +3,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-ul {
+h1,
+u,
+p {
   margin: 0px;
+}
+
+ul {
   padding: 0px;
   list-style: none;
 }
 
 a {
   text-decoration: none;
+  color: inherit; /* pra herdar a propriedade do elemento pai */
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 /* Sempre dar esse reset nos estilos iniciais de cada coisa (acima) */
@@ -86,4 +97,60 @@ a {
     padding: 8px 12px;
     font-size: 14px;
   }
+}
+
+.introducao-bg {
+  background: #000000;
+  color: #ffffff;
+}
+
+.introducao {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 1fr significa distribuir igualmente o espaço que sobra, aqui é indiferente colocar 6fr 6fr, ou 10fr 10fr... ou 1fr 1fr */
+  gap: 0px 40px; /* p separar só pros lados as duas colunas */
+  box-sizing: border-box; /* p somar os paddings com o max-width de 1200px */
+  max-width: 1200px; /* p o conteudo ficar contido nos 1200px */
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto; /* margin-left auto e margin right auto p os itens ficarem sempre alinhados ao centro independente do tamanho da pag */
+}
+
+.introducao-conteudo {
+  align-self: end; /* p alinhar verticalmente na parte de baixo */
+  padding-bottom: 80px; /* p nao ficar tao p baixo */
+}
+
+.introducao h1 {
+  margin-bottom: 32px;
+  font-size: 64px;
+  line-height: 1.125; /* sempre definir o line-height relativo a font-size, ex aqui: 72/64 = 1.125 (72px era o valor fixo) */
+}
+
+.introducao h1 span {
+  color: #ffbb00;
+}
+
+.introducao p {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #b2b2b2;
+}
+
+.introducao a {
+  display: inline-block; /* p pegar o padding corretamente */
+  padding: 16px 32px;
+  background: linear-gradient(#ffbf00, #f2a50c);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  color: #332200;
+  font-size: 18px;
+  line-height: 1.33;
+  font-weight: bold;
+}
+
+.introducao a:hover {
+  background: linear-gradient(#ffb60d, #f2a50c);
 }
