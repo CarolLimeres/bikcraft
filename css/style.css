@@ -56,6 +56,8 @@ img {
   padding: 16px 0px; /* p aumentar a area de contato do botao, qnd clicar com o dedo vai ser melhor, coloco so pra cima e pra baixo senao os itens iam ficar mt espaçados */
   font-size: 18px;
   position: relative; /* sem isso o elemento absolute fica em relaçao ao body, o width ficar crescendo de acordo com o body. Com isso nao ocupa mais nenhum espaço q aumente esses itens */
+  font-family: "Poppins";
+  font-weight: 400;
 }
 
 .header-menu a:after {
@@ -133,6 +135,8 @@ img {
   margin-bottom: 32px;
   font-size: 64px;
   line-height: 1.125; /* sempre definir o line-height relativo a font-size, ex aqui: 72/64 = 1.125 (72px era o valor fixo) */
+  font-family: "Poppins";
+  font-weight: 600;
 }
 
 .introducao h1 span {
@@ -144,6 +148,8 @@ img {
   font-size: 24px;
   line-height: 1.5;
   color: #b2b2b2;
+  font-family: "Roboto";
+  font-weight: 400;
 }
 
 .introducao a {
@@ -156,7 +162,8 @@ img {
   color: #332200;
   font-size: 18px;
   line-height: 1.33;
-  font-weight: bold;
+  font-family: "Poppins";
+  font-weight: 600;
 }
 
 .introducao a:hover {
