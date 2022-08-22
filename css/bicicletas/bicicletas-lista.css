@@ -1,0 +1,71 @@
+.bicicletas-lista {
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.bicicletas-lista h2 {
+  margin-bottom: 40px;
+  box-sizing: border-box; /* p somar os paddings e só ficar com 1200 no maximo */
+  max-width: 1200px; /* p ficar no mesmo container definido anteriormente, cresce até 1200 */
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bicicletas-lista ul {
+  display: flex; /* pq tenho uma lista com os itens um ao lado do outro */
+  gap: 40px; /* p criar o espaçamento entre os itens */
+  padding: 0 20px 20px 20px;
+  max-width: 1400px; /* p vazar o container e ficar maior, mas vai ter um limite de 1400... entao ele cresce além do container de 1200 criado anteriormente */
+  margin-left: auto;
+  margin-right: auto; /* p os itens ficarem sempre centralizados, nao importa o qnt aumente a tela */
+  overflow-x: auto; /* cria uma barra de scroll só pra esse ul no eixo x */
+}
+
+.bicicletas-lista li {
+  flex: 1;
+  min-width: 280px;
+}
+
+.bicicletas-lista a {
+  display: block; /* p pegar inteiro o item, pq como o a naturalmente é display inline, ele seleciona cada um dos itens separadamente, quando coloco display block pega inteiro */
+}
+
+.bicicletas-lista img {
+  margin-bottom: 16px;
+}
+
+.bicicletas-lista h3 {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center; /* p ficar alinhado ao centro do icone */
+}
+
+.bicicletas-lista h3::before {
+  content: "";
+  display: inline-block; /* p pegar height e tudo mais, mas ficar na mesma linha */
+  height: 8px;
+  width: 12px;
+  margin-right: 8px; /* margem entre titulo e icone */
+  background-color: var(--cor-p1);
+  transition: width 0.2s;
+}
+
+.bicicletas-lista a:hover h3::before {
+  width: 24px;
+  /* transition: width 0.2s; */
+}
+
+.bicicletas-lista li span {
+  padding-left: 20px; /* soma do margin-right de 8 com width de 12 p alinhar o preço com o titulo*/
+}
+
+@media (max-width: 800px) {
+  .bicicletas-lista {
+    padding-bottom: 60px;
+  }
+  .bicicletas-lista ul {
+    gap: 20px;
+  }
+}
