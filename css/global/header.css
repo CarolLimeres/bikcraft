@@ -24,10 +24,7 @@
 .header-menu a {
   display: inline-block; /* pro padding pegar direito */
   padding: 16px 0px; /* p aumentar a area de contato do botao, qnd clicar com o dedo vai ser melhor, coloco so pra cima e pra baixo senao os itens iam ficar mt espaçados */
-  font-size: 18px;
   position: relative; /* sem isso o elemento absolute fica em relaçao ao body, o width ficar crescendo de acordo com o body. Com isso nao ocupa mais nenhum espaço q aumente esses itens */
-  font-family: "Poppins";
-  font-weight: 400;
 }
 
 .header-menu a:after {
