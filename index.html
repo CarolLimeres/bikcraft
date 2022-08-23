@@ -23,7 +23,7 @@
   <body>
     <header class="header-bg">
       <!-- A tag <header >marca o cabeçalho do site (banner), onde geralmente estão presentes a marca, navegação do site e as vezes uma informação introdutória. Sempre que tiver a class="header-bg" ja sabemos que tem um background que se expande de ponta a ponta do site -->
-      <div class="header">
+      <div class="header container">
         <!-- estrutura: tag fora com o background (<header>), tag dentro com o container do site (<div>) -->
         <a href="./">
           <img src="./img/bikcraft.svg" alt="Bikcraft" />
@@ -40,8 +40,10 @@
       </div>
     </header>
 
+    <!-- o background expande infinitamente -->
     <main class="introducao-bg">
-      <div class="introducao">
+      <!-- O container é o que segura nos 1200 px, começa aqui embaixo -->
+      <div class="introducao container">
         <div class="introducao-conteudo">
           <!-- com essa div "introducao-conteudo" ja fica automaticamente definido conteudo de um lado e imagem do outro -->
           <h1 class="font-1-xxl cor-0">
@@ -63,7 +65,9 @@
     </main>
 
     <article class="bicicletas-lista">
-      <h2 class="font-1-xxl">escolha a sua<span class="cor-p1">.</span></h2>
+      <h2 class="container font-1-xxl">
+        escolha a sua<span class="cor-p1">.</span>
+      </h2>
 
       <ul>
         <li>

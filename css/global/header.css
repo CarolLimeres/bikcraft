@@ -8,11 +8,8 @@
   flex-wrap: wrap; /* p quebrar p baixo */
   justify-content: space-between; /* pra colocar o logo de um lado e os itens da navegação do outro, espaçamento entre os itens */
   align-items: center; /* pro logo ficar sempre alinhado ao centro com os itens da navegação */
-  box-sizing: border-box; /* p nao precisar escrever um valor quebrado pro max-width, com isso ele ja conta os valores de padding (20px pra cima e p baixo e de um lado p outro)*/
-  padding: 20px; /* p desgrudar os itens dos cantos */
-  max-width: 1200px; /* container p segurar os itens, p nao crescer infinitamente, p deixar responsivo */
-  margin-left: auto;
-  margin-right: auto; /* margin left e right de auto pra alinhar ao centro dps que foi definido o max-width de 1200px senao ia sempre ficar alinhado no msm canto */
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .header-menu {

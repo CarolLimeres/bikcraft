@@ -5,12 +5,6 @@
 
 .bicicletas-lista h2 {
   margin-bottom: 40px;
-  box-sizing: border-box; /* p somar os paddings e só ficar com 1200 no maximo */
-  max-width: 1200px; /* p ficar no mesmo container definido anteriormente, cresce até 1200 */
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .bicicletas-lista ul {
