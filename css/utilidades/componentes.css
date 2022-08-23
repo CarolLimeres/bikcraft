@@ -28,3 +28,22 @@
     font-size: 1rem;
   }
 }
+
+.link {
+  display: inline-block; /* p poder pegar todos os paddings que eu definir */
+  color: var(--cor-p1);
+  font: 500 1.5rem/1.5 "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+
+.link::after {
+  content: "";
+  display: block;
+  width: 100%; /* vai ter 100% do pai, ou seja, o tamanho total do conteúdo */
+  height: 4px;
+  background-color: currentColor; /* p utilizar qualquer valor que eu defini no pai do elemento, ou seja, se eu mudar no pai muda aqui também */
+}
+
+.link:hover {
+  color: var(--cor-0); /* muda o valor p branco tanto do filho quanto do pai */
+}
