@@ -1,0 +1,55 @@
+.parceiros {
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.parceiros h2 {
+  margin-bottom: 60px;
+}
+
+.parceiros ul {
+  padding: 0 20px; /* 0 p cima e p baixo e 20 de um lado p outro */
+  max-width: 1400px;
+  display: grid; /* nesse caso tem que ser o grid pq se fosse flex ele nao ficaria alinhado em colunas, ele só ficaria com o tamanho de cada item. Lembrar: sempre que quero coluna, usar grid */
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas de 1fr */
+  margin: 0 auto; /* p cima e p baixo 0 e de um lado p outro auto. Quando começar a crescer acima de 1400 ele vai começar a centralizar esse conteudo */
+}
+
+.parceiros li {
+  display: flex; /* com o display flex eu posso criar uma margin de auto para cada uma das imagens, tanto p cima e p baixo qnt de um lado p outro, fazendo assim com q a imagem fique alinhada ao centro */
+  padding: 32px; /* p separar os itens das pontas */
+  border-left: 2px solid var(--cor-2);
+}
+
+.parceiros img {
+  margin: auto;
+}
+
+/* p tirar a borda do primeiro item e do quinto */
+.parceiros li:first-child,
+.parceiros li:nth-child(5) {
+  border-left: none;
+}
+
+/* p adicionar borda a partir do quinto item */
+.parceiros li:nth-child(n + 5) {
+  border-top: 2px solid var(--cor-2);
+}
+
+@media (max-width: 800px) {
+  .parceiros {
+    padding-bottom: 60px;
+  }
+  .parceiros h2 {
+    margin-bottom: 20px; /* p diminuir a distância entre o título e o grid */
+  }
+  .parceiros ul {
+    grid-template-columns: repeat(2, 1fr); /* duas colunas de 1fr */
+  }
+  .parceiros li:nth-child(n + 3) {
+    border-top: 2px solid var(--cor-2); /* p adicionar border-top a partir do terceiro item */
+  }
+  .parceiros li:nth-child(odd) {
+    border-left: none; /* p remover a border-left só dos itens ímpares */
+  }
+}
