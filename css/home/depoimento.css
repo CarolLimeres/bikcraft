@@ -1,0 +1,60 @@
+.depoimento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--cor-p1);
+  overflow: hidden; /* p toda vez que o conteudo for estourar o container, ele esconde, esconde a barra de scroll */
+}
+
+.depoimento img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* só pode ser usado p imagens que podem ser cortadas */
+  border-radius: 0px;
+}
+
+.depoimento-conteudo {
+  padding: 40px 40px 80px 80px; /* 40px p cima, 40px p direita, 80px p baixo, 80px p esquerda */
+  align-self: end; /* p ficar sempre alinhado verticalmente p baixo. Só é aplicado pq é um elemento de grid */
+}
+
+.depoimento-conteudo p {
+  max-width: 32ch; /* p texto nao crescer infinitamente e ficar mt largo */
+  font-family: "Merriweather", serif;
+  font-style: italic;
+  font-weight: 900;
+  margin-bottom: 32px;
+  position: relative; /* tem que definir aqui como position relative (pq esse elemento é o pai do before de baixo), senao o detalhe que criei embaixo vai ficar voando por ai */
+}
+
+.depoimento p::before,
+.depoimento p::after {
+  font-size: 5rem;
+  color: var(--cor-p2);
+  position: absolute; /* p tirar esse detalhe do fluxo e fazer ele parar de influenciar no texto*/
+}
+
+.depoimento p::before {
+  content: "“";
+  left: -50px;
+  top: -20px;
+}
+
+.depoimento p::after {
+  content: "”";
+}
+
+@media (max-width: 800px) {
+  .depoimento {
+    grid-template-columns: 1fr; /* uma coluna de 1fr */
+    text-align: center;
+  }
+
+  .depoimento img {
+    max-height: 200px; /* definir um tamanho maximo aqui p imagem nao ficar gigante */
+  }
+
+  .depoimento-conteudo {
+    padding: 40px 20px; /* 40 p cima e p baixo, 20 de um lado p outro */
+    justify-self: center; /* Como é um conteudo de grid, por padrão fica ao inicio, ao start. Então tenho q justificar -horizontal- ao centro */
+  }
+}

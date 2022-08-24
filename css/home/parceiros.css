@@ -40,6 +40,9 @@
   .parceiros {
     padding-bottom: 60px;
   }
+  .parceiros li {
+    padding: 20px; /* p as marcas nao ficarem tao pequenas, diminui o padding definido anteriormente */
+  }
   .parceiros h2 {
     margin-bottom: 20px; /* p diminuir a distância entre o título e o grid */
   }
