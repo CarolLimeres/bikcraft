@@ -1,0 +1,70 @@
+.seguros-bg {
+  background: var(--cor-11);
+}
+
+.seguros {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: grid; /* pq quero colunas */
+  grid-template-columns: 1fr 1fr; /* duas colunas */
+  gap: 40px;
+  align-items: center;
+}
+
+.seguros h2 {
+  grid-column: 1/-1; /* p pegar de uma ponta até a outra ponta */
+}
+
+.seguros-item {
+  background-color: var(--cor-12);
+  padding: 32px 32px 32px 60px; /* só p esquerda é 60px */
+  display: grid;
+  grid-template-columns: 1fr auto; /* uma coluna de um 1fr que cresce infinitamente, e a outra (do preço) vai ser de automatica q assim vai ter sempre o tamanho maximo do conteudo que tiver ali (que no caso é bem pequeno, é só o tamanho do preço msm) */
+}
+
+.seguros-item h3 {
+  margin-bottom: 40px;
+}
+
+.seguros-item span {
+  grid-column: 2; /* p forçar a ficar sempre na segunda coluna, caso em algum momento ele tente mudar de area */
+  display: block; /* p os elementos (preço e mensal) nao ficarem um do lado do outro, ficam pq é span */
+  text-align: right;
+}
+
+.seguros-item ul {
+  grid-column: 1/-1; /* p pegar de ponta a ponta, pegar da primeira coluna até a última */
+  margin-bottom: 32px;
+}
+
+/* p conseguir alinhar os ícones ao centro */
+.seguros-item li {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* p adicionar só pra li que é seguido de outro li */
+.seguros-item li + li {
+  margin-top: 20px;
+}
+
+.seguros-item li::before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 9px;
+  background-image: url("../../img/icones/lista.svg");
+  position: absolute; /* quero tirar o elemento do fluxo */
+  left: -21px; /* pq é o tamanho dele (13 + 9 = 21)*/
+}
+
+.seguros-item a {
+  grid-column: 1/-1; /* p pegar de ponta a ponta, pegar da primeira coluna até a última */
+}
+
+@media (max-width: 800px) {
+  .seguros {
+    grid-template-columns: 1fr;
+  }
+}

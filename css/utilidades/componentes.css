@@ -16,10 +16,21 @@
   text-transform: uppercase;
   color: var(--cor-p5);
   font: 600 1.125rem/1.35 "Poppins", sans-serif;
+  max-width: max-content; /* pro botao sempre só ficar no tamanho máximo do conteúdo dele, senao ele expande infinitamente por causa do grid (por padrão,o elemento do grid expande o maximo q ele conseguir) */
 }
 
 .botao:hover {
   background: linear-gradient(#ffb60d, #f2a50c);
+}
+
+/* qnd tiver a classe botao e secundario no elemento */
+.botao.secundario {
+  background: var(--cor-10);
+  color: var(--cor-2);
+}
+
+.botao.secundario:hover {
+  background: var(--cor-9);
 }
 
 @media (max-width: 600px) {
