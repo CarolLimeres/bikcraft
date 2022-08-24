@@ -1,0 +1,67 @@
+.footer-bg {
+  background-color: var(--cor-12);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 3fr 5fr 4fr; /* p espaço do meio ter mais espaço, o da direita vai ter um pouco menos e o da esquerda menos ainda */
+  gap: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.footer h3 {
+  margin-bottom: 32px;
+}
+
+.footer-contato ul {
+  margin-bottom: 32px;
+}
+
+/* posso usar o even (pares) pq aqui só tem 4 elementos, se fosse mais teria que usar do outro jeito */
+.footer-contato li:nth-child(even):after {
+  content: "";
+  display: block;
+  max-width: 360px; /* se eu diminuo a tela, a linha vai diminuindo pq eu defini aqui como max-width */
+  height: 2px;
+  background: var(--cor-11);
+  margin-top: 16px;
+}
+
+.footer li {
+  margin-bottom: 16px;
+}
+
+.footer-redes {
+  display: flex;
+  gap: 32px;
+}
+
+.footer a:hover {
+  color: var(--cor-0);
+}
+
+.footer-copy {
+  grid-column: 1/-1; /* por padrao o copy so tava na primeira coluna, p expandir de ponta a ponta tenho q definir isso */
+  margin-top: 40px;
+}
+
+@media (max-width: 800px) {
+  /* p falar diretamente com a imagem do logo */
+  .footer > img {
+    display: none;
+  }
+  .footer {
+    grid-template-columns: 1fr 1fr; /* duas colunas iguais */
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    grid-template-columns: 1fr; /* uma coluna */
+    gap: 60px;
+  }
+  .footer-copy {
+    margin-top: 0px; /* nao precisa mais de margin por causa do gap que ja foi definido la em cima */
+  }
+}
