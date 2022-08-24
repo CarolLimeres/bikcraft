@@ -1,0 +1,19 @@
+.termos {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.termos h2 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* p adicionar p todo h2 que venha depois de um p. Assim nao adiciona pro primeiro */
+.termos p + h2 {
+  margin-top: 40px;
+}
+
+.termos p {
+  max-width: 75ch; /* p texto nao crescer infinitamente */
+  margin-bottom: 24px;
+}
