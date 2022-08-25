@@ -1,0 +1,110 @@
+.bicicletas-bg {
+  background: linear-gradient(to right, var(--cor-0) 30%, var(--cor-11) 0%);
+  /* p criar o background metade de uma cor, metade de outra, p criar a ilusão de que ta vazando */
+}
+
+.bicicletas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.bicicletas-imagem {
+  display: grid;
+}
+
+.bicicletas-imagem img {
+  grid-area: 1/1;
+}
+
+.bicicletas-imagem span {
+  grid-area: 1/1;
+  place-self: start end;
+  margin-top: 20px;
+  background: var(--cor-12);
+  display: inline-block; /* p os paddings pegarem direitinho */
+  padding: 8px 16px 8px 8px;
+  border-radius: 4px 0 0 4px;
+}
+
+.bicicletas-conteudo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-content: start; /* p nao criar espaços entre o conteudo quando a imagem cresce */
+}
+
+.bicicletas-conteudo h2,
+.bicicletas-conteudo p {
+  grid-column: 1/-1; /* p pegar a coluna de ponta a ponta */
+}
+
+.bicicletas h2 {
+  margin-bottom: 20px;
+}
+
+.bicicletas h2::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 8px;
+  background-color: var(--cor-p1);
+  margin-bottom: 8px;
+}
+
+.bicicletas p {
+  margin-bottom: 32px;
+}
+
+.bicicletas a {
+  place-self: end; /* p botao parar de tentar expandir o maximo do tamanho do conteudo da grid, nesse caso da altura... com place-self end ele alinha no final tanto verticalmente qnt horizontalmente */
+}
+
+.bicicletas li {
+  display: flex;
+  align-items: center; /* p alinhar os icones verticalmente no centro do texto */
+  /* gap: 8px; posso deixar ou esse gap aqui ou o margin-right debaixo, da na mesma */
+}
+
+.bicicletas ul {
+  display: grid;
+  gap: 16px;
+}
+
+/* aqui é uma outra forma de fazer a mesma coisa de cima,
+aqui aplica p todo li seguido de outro li .bicicletas li + li {
+  margin-top: 16px;
+} */
+
+/* aqui tenho q colocar bicicletas-conteudo pq tenho outra imagem do lado de fora, na classe bicicletas */
+.bicicletas-conteudo img {
+  width: 24px;
+  margin-right: 8px;
+}
+
+@media (max-width: 800px) {
+  .bicicletas-bg {
+    background: var(--cor-11);
+  }
+  .bicicletas {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bicicletas-conteudo {
+    grid-template-columns: 1fr;
+  }
+  .bicicletas ul {
+    font-size: 1rem;
+    grid-template-columns: 1fr 1fr; /* como essa lista foi definida como um grid anteriormente, agora posso dividir em duas colunas pra preencher melhor o espaço vazio */
+    margin-bottom: 32px;
+  }
+  .bicicletas a {
+    place-self: start;
+  }
+}

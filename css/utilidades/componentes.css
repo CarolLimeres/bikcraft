@@ -33,6 +33,27 @@
   background: var(--cor-9);
 }
 
+/* p deixar a seta alinhada ao centro certinho */
+.botao.seta {
+  display: flex;
+  align-items: center;
+}
+
+.botao.seta::after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 10px; /* os valores de width e de height são os valores exatos do tamanho da seta */
+  margin-left: 12px;
+  background: url(../../img/icones/seta.svg);
+  transition: transform 0.2s;
+}
+
+/* qnd passar o mouse por cima (hover) eu quero mover o after assim: */
+.botao.seta:hover::after {
+  transform: translateX(4px); /* translacionar 4px no eixo x */
+}
+
 @media (max-width: 600px) {
   .botao {
     padding: 12px 16px;
