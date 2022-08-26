@@ -1,0 +1,45 @@
+.seguro-bg {
+  background-color: var(--cor-11);
+  box-shadow: inset /* dentro */ 0 /* 0 de um lado p outro */ 120px
+      /* 120 de cima p baixo */ var(--cor-0),
+    /* p baixo: */ inset 0 -120px var(--cor-12);
+}
+
+.seguro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.seguro-imagem img {
+  width: 100%;
+  height: 100%; /* width e height de 100% pra pegar de ponta a ponta do conteudo, pq senao conforme diminui a tela a imagem fica menor que o conteudo */
+  object-fit: cover; /* sem isso a imagem fica distorcida */
+}
+
+.seguro-conteudo {
+  padding-top: 180px; /* 120 + uma diferença de 60px*/
+  padding-bottom: 180px; /* compensar com esses paddings a box shadow que criei */
+}
+
+.seguro h2 {
+  margin-bottom: 32px;
+}
+
+.seguro p {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+  .seguro-bg {
+    box-shadow: /* p baixo: */ inset 0 -60px var(--cor-12);
+  }
+  .seguro {
+    grid-template-columns: 1fr;
+  }
+  .seguro-conteudo {
+    grid-row: 1; /* p conteudo ficar na primeira linha (antes da imagem) */
+    padding-top: 40px;
+    padding-bottom: 0px;
+  }
+}
