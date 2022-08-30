@@ -17,6 +17,10 @@
   color: var(--cor-p5);
   font: 600 1.125rem/1.35 "Poppins", sans-serif;
   max-width: max-content; /* pro botao sempre só ficar no tamanho máximo do conteúdo dele, senao ele expande infinitamente por causa do grid (por padrão,o elemento do grid expande o maximo q ele conseguir) */
+
+  /* estilos pro button */
+  border: none;
+  cursor: pointer;
 }
 
 .botao:hover {
