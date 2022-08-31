@@ -1,0 +1,193 @@
+#orcamento {
+  background: linear-gradient(
+    var(--cor-11) 600px /* p ficar até 600px de altura da pag */,
+    var(--cor-1) 0px
+      /* p la de cima ja começar no cinza clarinho e nao ter a transição do preto pro cinza clarinho */
+  );
+}
+
+.orcamento {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  padding-bottom: 120px;
+}
+
+.orcamento h2 {
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.orcamento h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 8px;
+  background-color: var(--cor-p1);
+  position: absolute;
+  left: -12px;
+}
+
+.orcamento-produto,
+.orcamento-dados {
+  padding: 60px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.orcamento-produto {
+  border-radius: 5px 0 0 5px;
+  background: var(--cor-12);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-content: start; /* por padrão o grid tenta expandir ao maximo pra ocupar a altura entao vou alinhar os itens ao inicio */
+}
+
+/* todo elemento dentro de orcamento-produto */
+.orcamento-produto > * {
+  grid-column: 1/-1; /* p pegar de ponta a ponta */
+}
+
+/* só o label direto */
+.orcamento-produto > label {
+  grid-column: initial; /* p pegar apenas uma coluna */
+}
+
+.orcamento-produto label {
+  font: 400 1rem/1.5 "Poppins", sans-serif;
+  color: var(--cor-4);
+  background-color: var(--cor-10);
+  padding: 12px 16px; /* 12 p cima e p baixo, 16 de um lado p outro */
+  border-radius: 4px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto /* bolinha */ 1fr /* texto, p crescer*/ auto /* span, fica sempre na ponta alinhado */;
+  align-items: center; /* p ficar tudo alinhado ao centro */
+  border: 1px solid var(--cor-10); /* da mesma cor do fundo */
+}
+
+/* quando o input tiver marcado eu quero falar com a label que ta logo após ele */
+.orcamento-produto input:checked + label {
+  background: var(--cor-0);
+  color: var(--cor-11);
+}
+
+.orcamento-produto label::before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box; /* p diminuir pq tava somando 12 com mais 1 e ficando 13 por 13, assim fica 12 msm */
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--cor-6);
+  border-radius: 50%; /* p arredondar o elemento */
+  margin-right: 8px;
+}
+
+.orcamento-produto input:checked + label::before {
+  border-color: var(--cor-7); /* p ficar mais escura do q tava antes */
+  box-shadow: inset 0 0 0 3px var(--cor-0), inset 0 0 0 6px var(--cor-7); /* p criar uma sombra dentro da bolinha... tem uma sombra branca menor e uma cinza p preencher todo. Como a branca é a primeira, então ela tem a prioridade e fica por cima e a sombra cinza é uma sombra mais interna */
+}
+
+.orcamento-produto label:hover {
+  background-color: var(--cor-9);
+  border-color: var(
+    --cor-9
+  ); /* p na ficar mais borrado por causa da borda que criei la em cima */
+}
+
+.orcamento-produto input:focus + label:hover {
+  box-shadow: 0 0 0 2px var(--cor-p1);
+  border-color: var(
+    --cor-12
+  ); /* se só definir uma borda aqui, ele expande o elemento pq o elemento começa sem borda, tem que adicionar uma borda la em cima no .orcamento-produto label pra ficar certo e depois eu só mudo a cor aqui */
+}
+
+/* span que tiver dentro de label */
+.orcamento-produto label span {
+  display: none; /* assim esconde o preço */
+}
+
+/* quando o elemento estiver selecionado */
+.orcamento-produto input:checked + label span {
+  display: inline-block; /* assim mostra o preço, quando o item tiver marcado */
+}
+
+/* p tirar a bolinha do radio */
+.orcamento-produto input {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none; /* isso tira qualquer tipo de evento de ponto, qualquer tipo de evento de clique que ele possui por padrão */
+}
+
+.orcamento-dados {
+  border-radius: 0 5px 5px 0;
+  background: var(--cor-0);
+}
+
+.orcamento-conteudo {
+  display: none; /*p ter ambos escondidos por padrão (tanto bikcraft quanto seguro) */
+}
+
+.orcamento-conteudo h2,
+.orcamento-dados h2:nth-of-type(n + 2) /* nth-of-type p selecionar apenas elementos que forem h2, (n + 2) p selecionar a partir do segundo */ {
+  margin-top: 20px;
+}
+
+/* p quando o bikcraft ou o seguro estiver selecionado. O ~ vai tentar procurar o primeiro elemento após o #bikcraft:checked que tenha o id orcamento-bikcraft, quando achar vai selecionar ele. Importante: pra funcionar tem que estar no mesmo nível, o input e o orcamento-conteudo tem o mesmo pai */
+#bikcraft:checked ~ #orcamento-bikcraft,
+#seguro:checked ~ #orcamento-seguro {
+  display: grid;
+  gap: 20px;
+}
+
+.orcamento-detalhes {
+  display: none; /* p começar sem aparecer nenhum */
+  background: var(--cor-0);
+  padding: 20px;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 4px;
+  align-items: center;
+}
+
+.orcamento-detalhes li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* p falar só com as imagens dentro de li, ou seja, só com os ícones, sem incluir a foto da bicicleta (que ta do lado de fora) */
+.orcamento-detalhes li img {
+  width: 16px;
+  margin-right: 8px;
+}
+
+/* p quando selecionar uma das bicicletas, aparecer os detalhes dela */
+.orcamento-produto input:checked + label + .orcamento-detalhes {
+  display: grid;
+}
+
+@media (max-width: 1200px) {
+  .orcamento-produto,
+  .orcamento-dados {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 800px) {
+  .orcamento {
+    grid-template-columns: 1fr;
+  }
+  .orcamento-produto {
+    border-radius: 5px 5px 0 0; /* p border-radius começar no topo e depois embaixo */
+  }
+  .orcamento-dados {
+    border-radius: 0 0 5px 5px; /* aqui fica p baixo */
+  }
+}
+
+@media (max-width: 400px) {
+  .orcamento-produto {
+    grid-template-columns: 1fr;
+  }
+}
