@@ -35,7 +35,8 @@
   position: absolute; /* p tirar o elemento do fluxo e voltar a ficar centralizado com o logo, ate diminuiu a altura do header, passa a ficar relacionado ao elemento pai que tiver com o position relative */
 }
 
-.header-menu a:hover:after {
+.header-menu a:hover::after,
+.header-menu a.ativo::after {
   width: 100%; /* p pegar exatamente a largura do elmento pai, ou seja, o tamanho do conteudo certinho, entao ja fica como se fosse um sublinhado que a gente definiu */
 }
 
