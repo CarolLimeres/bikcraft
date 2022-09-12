@@ -48,7 +48,7 @@ parametros.forEach(ativarProduto);
 // p ver as propriedades que o location tem
 // console.log(parametros);
 
-// Perguntas Frequentes
+// Perguntas Frequentes (esse código vai fazer com que quando eu clique na pergunta mostra a resposta e quando clicar dnv ela some)
 
 // qual item que eu quero selecionar p adicionar um evento ou não? (de clique)
 // em cada botão dentro de perguntas:
@@ -88,3 +88,34 @@ perguntas.forEach(eventosPerguntas);
 
 // p ver se ta funcionando (se estiver aparecendo NodeList(6) ta certo):
 console.log(perguntas);
+
+// Galeria de Bicicletas
+//1- aqui to falando com cada imagem:
+const galeria = document.querySelectorAll(".bicicleta-imagens img");
+// aqui to falando com o container que envolve todas as imagens:
+const galeriaContainer = document.querySelector(".bicicleta-imagens");
+
+//4-
+function trocarImagem(event) {
+  // sempre quero selecionar o item que to clicando no momento:
+  const img = event.currentTarget;
+  // verificar o tamanho da tela e se a tela tiver menor que 1000px eu vou eliminar a funcionalidade de prepend (pq o layout nao vai fazer sentido):
+  // o matchMedia é um método que recebe uma string e essa string vai ter um media query
+  // min-width: 1000px = abaixo de 1000px
+  const media = matchMedia("(min-width: 1000px)").matches;
+  if (media) {
+    // manipular o Dom pegando um elemento e jogando ele pra outra parte:
+    // o método prepend remove o elemento de um lugar e coloca em outro
+    galeriaContainer.prepend(img);
+  }
+}
+
+//3- passar cada uma das imagens da galeria (img):
+function eventosGaleria(img) {
+  // evento de clique, função trocarImagem:
+  img.addEventListener("click", trocarImagem);
+}
+
+//2- começar sempre adicionando um evento de clique:
+// adicionar cada item da galeria:
+galeria.forEach(eventosGaleria);
