@@ -19,15 +19,19 @@
 }
 
 /* estilo p perguntas */
-.perguntas dt {
+.perguntas button {
   display: grid;
   grid-template-columns: auto 1fr auto; /* primeira coluna vai ser automatica q é o tamanho q tiver de conteudo, a coluna de pergunta vai ser de 1fr, entao cresce o qnt der, e a terceira como auto tb */
   align-items: center; /* alinhou os símbolos ao centro */
   gap: 8px;
   cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%; /* pq o botão por padrão tem a largura com tamanho de acordo com o conteúdo, então quero tirar isso */
+  text-align: left; /* pq o botão por padrão alinha ao centro, mas quero que fique na esquerda */
 }
 
-.perguntas dt::before {
+.perguntas button::before {
   content: "";
   display: inline-block;
   width: 12px;
@@ -35,7 +39,7 @@
   background-color: var(--cor-p1);
 }
 
-.perguntas dt::after {
+.perguntas button::after {
   content: "";
   display: inline-block;
   width: 14px;
@@ -45,8 +49,18 @@
 }
 
 /* p rotacionar a setinha */
-.perguntas dt:hover::after {
+.perguntas button:hover::after,
+/* p o que estiver ativo ficar com a seta p baixo */
+.perguntas button[aria-expanded="true"]::after {
   transform: rotate(180deg);
+}
+
+.perguntas dd {
+  display: none; /* todas as respostas começam escondidas */
+}
+
+.perguntas dd.ativa {
+  display: block; /* só vai mostrar a que está com classe de ativa no momento */
 }
 
 /* estilo p respostas */

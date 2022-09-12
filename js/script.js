@@ -47,3 +47,44 @@ parametros.forEach(ativarProduto);
 
 // p ver as propriedades que o location tem
 // console.log(parametros);
+
+// Perguntas Frequentes
+
+// qual item que eu quero selecionar p adicionar um evento ou não? (de clique)
+// em cada botão dentro de perguntas:
+const perguntas = document.querySelectorAll(".perguntas button");
+
+// se eu to dentro de um evento eu sempre tenho acesso ao parâmetro de evento (event)
+function ativarPergunta(event) {
+  // sempre vale a pena ja puxar o elemento que eu to clicando:
+  const pergunta = event.currentTarget;
+  // eu quero puxar inicialmente quando cliquei no botão o valor de aria-controls
+  // como puxo o valor de um atributo?
+  const controls = pergunta.getAttribute("aria-controls");
+  // selecionar esse elemento (pelo id):
+  const resposta = document.getElementById(controls);
+
+  // adicionar uma classe na resposta:
+  // agora quando clico ele mostra e qnd clico dnv ele remove
+  resposta.classList.toggle("ativa");
+  // se resposta conter a classe "ativa" eu adiciono true pq ta expandido, se nao conter ele coloca false
+  const ativa = resposta.classList.contains("ativa");
+  // pq antes o aria-expanded estava ficando como false e estava errado
+  pergunta.setAttribute("aria-expanded", ativa);
+}
+
+// como tenho acesso a cada pergunta específica vou colocar como nome de parâmetro "pergunta"
+function eventosPerguntas(pergunta) {
+  // p verificar a lista de botões aparecendo (cada um deles):
+  // console.log(pergunta);
+
+  // dentro da pergunta eu quero adicionar o evento de clique:
+  // passar a função que vai ocorrer ao clique (ativarPergunta)
+  pergunta.addEventListener("click", ativarPergunta);
+}
+
+// Qual evento quero verificar? evento de clique. Então vou adicionar para cada um o evento de clique
+perguntas.forEach(eventosPerguntas);
+
+// p ver se ta funcionando (se estiver aparecendo NodeList(6) ta certo):
+console.log(perguntas);
