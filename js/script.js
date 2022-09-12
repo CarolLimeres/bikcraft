@@ -101,7 +101,6 @@ function trocarImagem(event) {
   const img = event.currentTarget;
   // verificar o tamanho da tela e se a tela tiver menor que 1000px eu vou eliminar a funcionalidade de prepend (pq o layout nao vai fazer sentido):
   // o matchMedia é um método que recebe uma string e essa string vai ter um media query
-  // min-width: 1000px = abaixo de 1000px
   const media = matchMedia("(min-width: 1000px)").matches;
   if (media) {
     // manipular o Dom pegando um elemento e jogando ele pra outra parte:
