@@ -10,8 +10,9 @@
       content="Bicicletas elétricas de alta precisão e qualidade, feitas sob medida para você. Explore o mundo na sua velocidade com a Bikcraft."
     />
 
-    <link rel="preload" href="./css/style.css" as="style" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./css/style.min.css" as="style" />
+    <link rel="stylesheet" href="./css/style.min.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,6 +20,12 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <!-- solução para caso o javascript nao carregue nao bugar a pag: 
+    - o documentElement seleciona o html inteiro 
+  - tb adicionar a classe .js no css em elementos que desativam e só ativam com javascript (os que tem display none, por ex) -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
 
   <body>

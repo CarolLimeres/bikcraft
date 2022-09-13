@@ -55,11 +55,11 @@
   transform: rotate(180deg);
 }
 
-.perguntas dd {
+.js .perguntas dd {
   display: none; /* todas as respostas começam escondidas */
 }
 
-.perguntas dd.ativa {
+.js .perguntas dd.ativa {
   display: block; /* só vai mostrar a que está com classe de ativa no momento */
 }
 
