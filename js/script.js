@@ -101,6 +101,7 @@ function trocarImagem(event) {
   const img = event.currentTarget;
   // verificar o tamanho da tela e se a tela tiver menor que 1000px eu vou eliminar a funcionalidade de prepend (pq o layout nao vai fazer sentido):
   // o matchMedia é um método que recebe uma string e essa string vai ter um media query
+  // se tiver mínimo de 1000px aplica o if (abaixo de 1000px nao aplica):
   const media = matchMedia("(min-width: 1000px)").matches;
   if (media) {
     // manipular o Dom pegando um elemento e jogando ele pra outra parte:
@@ -118,3 +119,9 @@ function eventosGaleria(img) {
 //2- começar sempre adicionando um evento de clique:
 // adicionar cada item da galeria:
 galeria.forEach(eventosGaleria);
+
+// Animação
+//se ele existir no window ele carrega, senão não faz a animação:
+if (window.SimpleAnime) {
+  new SimpleAnime();
+}

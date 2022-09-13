@@ -1,0 +1,23 @@
+.fadeInDown {
+  transform: translate3d(0, -20px, 0);
+}
+.fadeInUp {
+  transform: translate3d(0, 20px, 0);
+}
+.fadeInRight {
+  transform: translate3d(20px, 0, 0);
+}
+.fadeInLeft {
+  transform: translate3d(-20px, 0, 0);
+}
+
+/* selecionar todo elemento que tem o atributo data-anime e adicionar uma opacidade de 0 por padrão: */
+[data-anime] {
+  opacity: 0;
+}
+/* essa classe anime que é oq o plugin faz, o plugin pega essa classe e adiciona ela depois dos segundos que eu botar */
+.anime {
+  opacity: 1;
+  transform: none;
+  transition: transform 0.8s, opacity 0.8s;
+}
